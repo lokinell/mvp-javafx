@@ -39,6 +39,7 @@ public class AppController implements Presenter {
 			// as long as its dependencies are fulfilled.
 			messagePresenter = injector.getInstance(MessagePresenterImpl.class);
 		}
+		
 		messagePresenter.go(stage);
 	}
 }

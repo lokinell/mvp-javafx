@@ -19,8 +19,9 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 /**
- * <code>MessagePresenter</code> implementation. Binds the view's event handlers and passes the necessary model to the
- * view as well. We also submit {@link com.madballneek.github.mvpboostrap.service.task.ServiceTask}s to the
+ * <code>MessagePresenter</code> implementation. Binds the view's event handlers
+ * and passes the necessary model to the view as well. We also submit
+ * {@link com.madballneek.github.mvpboostrap.service.task.ServiceTask}s to the
  * {@link MessageService} here as well.
  */
 public class MessagePresenterImpl implements Presenter {
@@ -30,7 +31,8 @@ public class MessagePresenterImpl implements Presenter {
 	private MessageService messageService;
 
 	@Inject
-	public MessagePresenterImpl(TaskManager taskManager, EventBus eventBus, View exampleView, MessageService messageService) {
+	public MessagePresenterImpl(TaskManager taskManager, EventBus eventBus,
+			View exampleView, MessageService messageService) {
 		this.taskManager = taskManager;
 		this.eventBus = eventBus;
 		this.eventBus.register(this);
@@ -62,13 +64,17 @@ public class MessagePresenterImpl implements Presenter {
 	}
 
 	public void sayHello() {
-		MessageRequestData messageRequestData = new MessageRequestData(view.getName().getText());
-		taskManager.submitNewTask(new SayHelloTask(eventBus, messageService, messageRequestData));
+		MessageRequestData messageRequestData = new MessageRequestData(view
+				.getName().getText());
+		taskManager.submitNewTask(new SayHelloTask(eventBus, messageService,
+				messageRequestData));
 	}
 
 	public void sayGoodbye() {
-		MessageRequestData messageRequestData = new MessageRequestData(view.getName().getText());
-		taskManager.submitNewTask(new SayGoodByeTask(eventBus, messageService, messageRequestData));
+		MessageRequestData messageRequestData = new MessageRequestData(view
+				.getName().getText());
+		taskManager.submitNewTask(new SayGoodByeTask(eventBus, messageService,
+				messageRequestData));
 	}
 
 	@Subscribe
